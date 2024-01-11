@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relevance Feedback for MAP</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container mt-5">
+    <h2 class="mb-4">Relevance Feedback for MAP</h2>
+
+    <div id="searchResults" class="mb-4"></div>
+
+    <div>
+        <button class="btn btn-primary" onclick="calculateAndDisplayMAP()">Calculate MAP</button>
+    </div>
+
+    <div class="mt-3">
+        <h4>Real-time MAP:</h4>
+        <div id="realTimeMap">0.0</div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script>
+    const searchResults = [
+        { ayah: "2:255", text: "Allah! There is no deity except Him..." },
+        { ayah: "3:18", text: "Allah bears witness that there is no deity except Him..." },
+        { ayah: "4:87", text: "Allah! There is no deity except Him..." },
+        { ayah: "5:3", text: "Allah bears witness that there is no deity except Him..." },
+        { ayah: "6:54", text: "Allah! There is no deity except Him..." },
+    ];
+
+    // Display search results
+    function displaySearchResults(results) {
+        const resultsContainer = $('#searchResults');
+        resultsContainer.empty();
+
+        results.forEach(result => {
+            resultsContainer.append(`<div class="card mb-2">
+                <div class="card-body">
+                    <h5 class="card-title">${result.ayah}</h5>
+                    <p class="card-text">${result.text}</p>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" data-ayah="${result.ayah}">
+                        <label class="form-check-label">This result is relevant</label>
+                    </div>
+                </div>
+            </div>`);
+        });
+    }
+
+    // Event listener for checkbox
+    $('#searchResults').on('change', 'input[type=checkbox]', function () {
+        // Update MAP on each checkbox change
+        calculateAndDisplayMAP();
+    });
+
+    // Function to calculate and display real-time MAP
+    function calculateAndDisplayMAP() {
+        const relevantCheckboxes = $('#searchResults input[type=checkbox]:checked');
+        const totalResults = searchResults.length;
+        const totalRelevant = relevantCheckboxes.length;
+
+        let precisionSum = 0.0;
+        let relevantCount = 0;
+
+        relevantCheckboxes.each(function (index) {
+            relevantCount++;
+            precisionSum += relevantCount / (index + 1);
+        });
+
+        const realTimeMAP = totalRelevant > 0 ? precisionSum / totalRelevant : 0.0;
+
+        // Display real-time MAP
+        $('#realTimeMap').text(realTimeMAP.toFixed(4));
+    }
+
+    // Initial display of search results
+    displaySearchResults(searchResults);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quran Search and MAP Rating</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="sweetalert2/sweetalert2.min.css">
+</head>
+<body class="bg-light">
+
+<div class="container mt-5">
+    <h2 class="mb-4">Quran Search and MAP Rating</h2>
+
+    <div class="card">
+        <div class="card-body">
+            <!-- Search Input -->
+            <div class="form-group">
+                <label for="searchQuery">Cari Ayat Alquran:</label>
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" id="searchQuery" placeholder="Enter your search query" value="dosa besar">
+                    <div class="input-group-append">
+                      <button class="btn btn-outline-secondary runSearch" data-id="1" type="button" id="button-addon2">Kata</button>
+                      <button class="btn btn-outline-secondary runSearch" data-id="2" type="button">Sinonim</button>
+                      <button class="btn btn-outline-secondary runSearch" data-id="3" type="button">Semantik</button>
+                    </div>
+                </div>
+                <!-- <input type="text" class="form-control" id="searchQuery" placeholder="Enter your search query"> -->
+            </div>
+        </div>
+    </div>
+    <div class="row mt-2">
+        <div class="col-md-8">
+            <h5 class="mb-3">Jumlah Pencarian : <span id="jml"></span></h5>
+            <!-- Search Results -->
+            <div id="searchResults" class="mb-4"></div>
+        </div>
+        <!-- ./col -->
+        <div class="col-md-4">
+            <div class="mb-2">
+                <div class="card">
+                    <div class="card-body">  
+                        <table class="table table-sm" id="hasill">
+                            <thead>
+                                <th>Ayat</th>
+                                <th>Total</th>
+                            </thead>
+                            <tbody>
+                                <td id="tdhasil"></td>
+                                <td id="tdjumlah"></td>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="mb-2">
+                <h5 class="d-flex justify-content-between align-items-center mb-3">
+                    <span class="text-muted">Perhitungan MAP</span>
+                </h5>
+                <div class="card">
+                    <div class="card-body">
+                        <p class="my-0"> Nilai MAP : <span id="realTimeMap"></span></p>
+                        <code>= (AP(1) + AP(n)) / Jumlah</code>
+
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th>Ayat</th>
+                                <th>AP</th>
+                                <th>Skor</th>
+                            </tr>
+                            </thead>
+                            <tbody id="resultsTableBody"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="mb-2">
+                <h5 class="d-flex justify-content-between align-items-center mb-3">
+                    <span class="text-muted">Perluasan Kata</span>
+                    <span class="badge badge-secondary badge-pill">3</span>
+                </h5>
+                <ul class="list-group mb-3" id="productList">
+                    <li class="list-group-item d-flex justify-content-between lh-condensed">
+                        <p class="my-0"> . . . . . . . . .</p>
+                    </li>
+                </ul>
+            </div>
+        </div>        
+    </div>
+
+
+    <!-- Submit Rating Button -->
+    <button class="btn btn-primary mt-3" id="submitRating" disabled>Simpan Penilaian</button>
+</div>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="sweetalert2/sweetalert2.all.min.js"></script>
+
+<script src="scirpt.js"></script>
+
+<script>
+    
+</script>
+
+</body>
+</html>

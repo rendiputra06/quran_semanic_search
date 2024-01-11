@@ -1,0 +1,8 @@
+Django
+django-admin
+django-cors-headers
+django-filter
+djangorestframework
+gunicorn
+requests
+whitenoise

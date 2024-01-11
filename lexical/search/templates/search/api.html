@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>API DOCS</title>
+        <link href="/../static/css/style.css" rel="stylesheet">
+        <link href="/../static/img/quran.png" rel="icon" type="image/png" >
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <a href="/">http://localhost:8000/</a>
+                <p>This homepage of API DOCS.</p>
+            </div>
+
+            <div class="row">
+                <a href="/api/lexical/all">http://localhost:8000/api/lexical/all</a>
+                <p>Return all verses with all attributes.</p>
+            </div>
+
+            <div class="row">
+                <a href="/api/lexical/search/محمد">http://localhost:8000/api/lexical/search/{words}</a>
+                <p>Take a string of words, to return all verses, containing this string.</p>
+            </div>
+
+            <div class="row">
+                <a href="/api/lexical/surah/110">http://localhost:8000/api/lexical/surah/{surah_id}</a>
+                <p>Take a Surah number, to return all verses in this Surah. Notice that Surah numbers is between 1 and 114.</p>
+            </div>
+
+            <div class="row">
+                <a href="/api/lexical/verse-in-surah/2/2">http://localhost:8000/api/lexical/verse-in-surah/{surah_id}/{verse_id}</a>
+                <p>Take a Surah number with a Verse number in the Surah, to return the specific Verse.</p>
+            </div>
+
+            <div class="row">
+                <a href="/api/lexical/verse-in-quran/40">http://localhost:8000/api/lexical/verse-in-quran/{verse_id}</a>
+                <p>Take a Verse number in the whole Quarn, to return the specific Verse.</p>
+            </div>
+
+            <div class="row">
+                <a href="/api/lexical/cari/muhammad">http://localhost:8000/api/lexical/cari/{words}</a>
+                <p>Ambil serangkaian kata, untuk mengembalikan semua ayat, yang berisi string ini.</p>
+            </div>
+        </div>
+    </body>
+</html>

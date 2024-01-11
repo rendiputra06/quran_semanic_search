@@ -1,0 +1,8 @@
+models/fasttext/wiki.id.bin
+models/fasttext/wiki.id.vec
+models/word2vec/idwiki/idwiki_word2vec_200_new_lower.model
+models/word2vec/idwiki/idwiki_word2vec_200_new_lower.model.trainables.syn1neg.npy
+models/word2vec/idwiki/idwiki_word2vec_200_new_lower.model.wv.vectors.npy
+
+src/models/__pycache__/*
+src/__pycache__/*
